@@ -1,0 +1,157 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* Navbar */
+
+.header {
+  border-bottom: 1px solid black;
+  display: flex;
+  width: 100vw;
+  height: 10vh;
+  align-items: center;
+}
+
+.choice {
+  width: fit-content;
+  margin-left: auto;
+}
+
+.header h1 {
+  font-size: 3.2vh;
+  font-weight: 100;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.header img {
+  height: 80%;
+  margin-left: 12px;
+}
+
+.header h1:hover {
+  color: rgb(255, 0, 0);
+}
+
+.logout {
+  margin-right: 3vw;
+  margin-left: auto;
+  background-color: aquamarine;
+  padding: 1vh 2vw;
+  border-radius: 3vw;
+  translate: 0 -1px;
+}
+
+.logout:hover {
+  cursor: pointer;
+  background-color: lightblue;
+  color: green;
+  box-shadow: 1px 1px;
+}
+
+.logout:active {
+  box-shadow: 0 0;
+  translate: 1px 1px;
+}
+
+.change {
+  width: 8vh;
+  height: 8vh;
+  margin-right: 2vw;
+  margin-top: 2.8vh;
+  display: none;
+}
+
+.change .line {
+  width: 6vh;
+  height: 0.6vh;
+  border-radius: 1vh;
+  margin: 0.5vh 0 0.5vh 0;
+  background: black;
+  transition: all 0.3s ease-out;
+}
+
+@media screen and (max-width: 1080px) {
+  .header img {
+    order: 1;
+    content: url("../pics/verlog.png");
+    margin-right: auto;
+  }
+
+  .logout {
+    order: 2;
+    margin-right: 3vw;
+    margin-left: auto;
+  }
+
+  .change {
+    order: 3;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .change.open .line:first-child {
+    transform: rotate(45deg) translate(1.2vh, 1.1vh);
+  }
+
+  .change.open .line:nth-child(2) {
+    transform: rotate(45deg);
+  }
+
+  .change.open .line:nth-child(3) {
+    transform: rotate(-45deg) translate(1.2vh, -1vh);
+  }
+
+  .choice {
+    order: 4;
+    margin-left: 0;
+    display: none;
+  }
+
+  .responsive .choice {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    height: 7vh;
+    animation: slideDown 0.3s forwards;
+    top: 10vh;
+    border-bottom: 1px solid black;
+    left: 0;
+    width: 100vw;
+    background-color: white;
+    padding: 1vh;
+    z-index: 1;
+  }
+
+  @keyframes slideDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-10vh);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .responsive .bor {
+    top: calc(17vh - 1px);
+    border-bottom-left-radius: 2vh;
+    border-bottom-right-radius: 2vh;
+  }
+}
