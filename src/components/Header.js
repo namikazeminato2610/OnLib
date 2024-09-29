@@ -1,30 +1,25 @@
 import React from "react";
 import "../styles/index.css";
-import logo from "../pics/horlog.png";
+import logo from "../pics/verlog.png";
+import org from "../pics/verlog.png";
 
 export default function Header(props) {
-    function responsive(e) {
-        let head = document.getElementById("header");
-        let change = document.getElementById("burg");
-        if (head.className === "header") {
-            head.className = "header responsive";
-            change.className = "change open";
-        } else {
-            head.className = "header";
-            change.className = "change";
-        }
+    const [showCard, setShowCard] = React.useState(false);
+
+    function wannaLog(e) {
+      setShowCard(!showCard);
     }
 
     return (
         <div id="header" className="header">
-            <img src={logo} alt="CLB"></img>
-            <div className="choice"><h1>Danh sách</h1></div>
-            <div className="choice bor"><h1>Mượn / trả</h1></div>
-            <h1 className="logout">Đăng xuất</h1>
-            <div id="burg" className="change" onClick={responsive}>
-                <div class="line"></div>
-                <div class="line"></div>
-                <div class="line"></div>
+            <img src={logo} alt="CLB" className="logo" onClick={props.onLogoClick}></img>
+            <img src={org} alt="Org" className="pfp" onClick={wannaLog}></img>
+            <div id="cardInfo" className={showCard ? "show" : "hide"}>
+                <img src={props.orgaPic} alt="Org" className={showCard ? 'show' : 'hide'}></img>
+                <div id="nameLogOut" className={showCard ? 'show' : 'hide'}>
+                    <h1 className="nameInfo">{props.orgaName}</h1>
+                    <h1 className="logout">Đăng xuất</h1>
+                </div>
             </div>
         </div>
     )
