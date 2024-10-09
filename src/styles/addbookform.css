@@ -1,0 +1,113 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.addBookForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1vh;
+  width: 80vw;
+  height: fit-content;
+  margin-left: 10vw;
+  margin-top: 5vh;
+  font-size: 3vh;
+}
+
+.infoInput {
+  display: flex;
+  gap: 5%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.picInput {
+  display: flex;
+  gap: 5%;
+  justify-content: start;
+  align-items: center;
+}
+
+label {
+  width: 20%;
+  text-align: center;
+}
+
+input[type="text"] {
+  width: 75%;
+  height: 5vh;
+  border-radius: 2vh;
+  border: 1px solid black;
+  padding-left: 1vh;
+  font-size: 3vh;
+  outline: none;
+}
+
+.picUp {
+  width: fit-content;
+  padding-left: 2vh;
+  padding-right: 2vh;
+  padding-top: 0.5vh;
+  padding-bottom: 0.5vh;
+  box-shadow: 3px 3px 3px black;
+  border: 1px solid black;
+  border-radius: 3vh;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+
+.picUp:hover {
+  background-color: #bebebe;
+}
+
+.picUp:active {
+  translate: 3px 3px;
+  box-shadow: none;
+}
+
+.picUp img {
+  height: 70%;
+}
+
+@media screen and (max-width: 768px) {
+  label {
+    width: 35%;
+  }
+
+  input[type="text"] {
+    width: 60%;
+  }
+
+  .picUp {
+    font-size: 3vh;
+    gap: 10px;
+  }
+
+  .picUp img {
+    height: 70%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .picUp {
+    font-size: 2.5vh;
+  }
+}
