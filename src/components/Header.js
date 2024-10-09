@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/index.css";
+import "../styles/header.css";
 import logo from "../pics/verlog.png";
 import org from "../pics/verlog.png";
 

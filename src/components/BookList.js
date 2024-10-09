@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/index.css";
+import "../styles/booklist.css";
 import del from "../pics/delete.svg";
 
 export default function BookList(props) {
@@ -16,8 +16,17 @@ export default function BookList(props) {
         while (tb.rows.length > 0) {
             tb.deleteRow(0);
         }
-        for (let i = 0; i < bookArr.length; i++) {
+        for (let i = 0; i < props.books.length; i++) {
             let row = tb.insertRow(i);
+            row.onclick = function (index) {
+                return function () {
+                    console.log(index);
+                    console.log(bookArr[index][0]);
+                    console.log(bookArr[index][1]);
+                    console.log(bookArr[index][2]);
+                    props.showInfo(index);
+                }
+            }(i);
             let c1 = row.insertCell(0);
             c1.innerHTML = bookArr[i][0];
             let c2 = row.insertCell(1);
@@ -28,7 +37,8 @@ export default function BookList(props) {
             const img = document.createElement('img');
             img.src = del;
             c4.appendChild(img);
-            c4.onclick = function () {
+            c4.onclick = function (event) {
+                event.stopPropagation();
                 let rowInd = this.parentNode.rowIndex - 1;
                 tb.deleteRow(rowInd);
                 props.books.splice(rowInd, 1);
